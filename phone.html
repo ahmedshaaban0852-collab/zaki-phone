@@ -24,7 +24,7 @@ fetch('./phones.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(da
  if(!p){$('content').innerHTML='<h1>لم نعثر على الهاتف</h1><p>ارجع إلى الكتالوج واختر الهاتف مرة أخرى.</p><a class="btn" href="catalog.html">العودة للكتالوج</a>';return}
  document.title=(p.model||'تفاصيل الهاتف')+' | زكي فون';
  const yearText=p.release_year||p.announcement_year;
- const price=p.egypt_price_egp?Number(p.egypt_price_egp).toLocaleString('ar-EG')+' جنيه':'السعر المصري غير متوفر';
+ const price=`الجديد التقريبي: ${p.current_new_price_egp?Number(p.current_new_price_egp).toLocaleString('ar-EG')+' جنيه':'غير متوفر'} | سعر الإطلاق التقريبي: ${p.launch_price_egp?Number(p.launch_price_egp).toLocaleString('ar-EG')+' جنيه':'غير متوفر'} | المستعمل التقريبي: ${p.used_price_egp?Number(p.used_price_egp).toLocaleString('ar-EG')+' جنيه':'غير متوفر'}`;
  $('content').innerHTML=`<span class="brand"></span><h1 class="title"></h1><p class="sub"></p><div class="price"></div><div class="grid">
  <div class="spec"><small>الشركة</small><b id="brandVal"></b></div>
  <div class="spec"><small>سنة الإعلان</small><b id="yearVal"></b></div>
@@ -33,7 +33,7 @@ fetch('./phones.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(da
  <div class="spec"><small>الكاميرات</small><b id="cameraVal"></b></div>
  <div class="spec"><small>البطارية</small><b id="batteryVal"></b></div>
  <div class="spec"><small>خيارات الذاكرة والتخزين</small><b id="storageVal"></b></div>
- <div class="spec"><small>حالة التحقق</small><b id="statusVal"></b></div>
+ <div class="spec"><small>حالة التحقق</small><b id="statusVal"></b></div><div class="spec"><small>دقة الشاشة</small><b id="resolutionVal"></b></div><div class="spec"><small>معدل التحديث</small><b id="refreshVal"></b></div><div class="spec"><small>نظام التشغيل عند الإطلاق</small><b id="osVal"></b></div><div class="spec"><small>الشحن</small><b id="chargingVal"></b></div><div class="spec"><small>مقاومة الماء</small><b id="waterVal"></b></div><div class="spec"><small>الاتصال</small><b id="connectVal"></b></div><div class="spec"><small>الأبعاد والوزن</small><b id="sizeVal"></b></div>
  </div><div class="note">ملاحظة: قاعدة البيانات مبدئية. أي مواصفة أو سعر غير متوفر سيظهر بوضوح على أنه غير متوفر، ولا يعني ذلك أن الهاتف لا يدعم هذه الميزة.</div>`;
  $('content').querySelector('.brand').textContent=brandNames[p.brand]||val(p.brand);
  $('content').querySelector('.title').textContent=val(p.model);
@@ -47,5 +47,6 @@ fetch('./phones.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(da
  $('batteryVal').textContent=val(p.battery);
  $('storageVal').textContent=val(p.storage_options);
  $('statusVal').textContent=(p.verification_status||'قيد التحقق');
+ $('resolutionVal').textContent=val(p.display_resolution);$('refreshVal').textContent=val(p.refresh_rate_hz);$('osVal').textContent=val(p.os_at_launch);$('chargingVal').textContent=val(p.charging_w);$('waterVal').textContent=val(p.water_resistance);$('connectVal').textContent=val(p.connectivity);$('sizeVal').textContent=[p.dimensions,p.weight_g?`${p.weight_g} جم`:null].filter(Boolean).join(' • ')||'غير متوفر';
 }).catch(()=>$('content').innerHTML='<h1>تعذر تحميل بيانات الهاتف</h1><p>تأكد من وجود ملف phones.json بجانب صفحة التفاصيل.</p><a class="btn" href="catalog.html">العودة للكتالوج</a>');
 </script></body></html>
