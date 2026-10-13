@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d14"><title>تفاصيل الهاتف | زكي فون</title>
+<style>
+:root{--bg:#080c12;--panel:#111925;--line:#253448;--text:#f1f6fc;--muted:#9eb0c5;--cyan:#27d7e8;--blue:#168cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10233a 0,#080c12 48%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}.wrap{max-width:950px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0 22px}.logo{font-size:clamp(23px,4vw,32px);font-weight:900}.logo span{color:var(--cyan)}a{color:#7edbff;text-decoration:none}.btn{display:inline-block;background:#0b83f6;color:white;border:0;border-radius:10px;padding:11px 15px;font:inherit;font-weight:700}.panel{background:linear-gradient(160deg,#141e2b,#0e151f);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,4vw,30px)}.brand{display:inline-block;background:#12324c;color:#7edbff;border-radius:7px;padding:5px 10px;font-size:13px}.title{font-size:clamp(27px,5vw,42px);margin:12px 0 5px;overflow-wrap:anywhere}.sub{color:var(--muted);margin:0 0 20px}.price{font-size:22px;font-weight:800;color:var(--cyan);margin:16px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}.spec{background:#0a111b;border:1px solid #26384b;border-radius:13px;padding:14px;min-width:0}.spec small{display:block;color:var(--muted);margin-bottom:7px}.spec b{overflow-wrap:anywhere;white-space:pre-wrap}.note{color:#f7dca5;background:#2a2111;border:1px solid #66502a;border-radius:12px;padding:12px;line-height:1.8;margin-top:18px}.foot{text-align:center;color:#7f91a7;padding:25px 8px;font-size:12px}@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="logo">زكي فون <span>| ZAKI PHONE</span></div><a class="btn" href="catalog.html">← الرجوع للكتالوج</a></header>
+<section class="panel" id="content"><p>جارٍ تحميل تفاصيل الهاتف…</p></section>
+<footer class="foot">زكي فون | ZAKI PHONE<br>المعلومات غير المتوفرة أو غير المؤكدة لن تُعرض على أنها حقائق.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const brandNames={Apple:'Apple',Samsung:'Samsung',Xiaomi:'Xiaomi / Redmi / POCO',OPPO:'OPPO',realme:'realme',vivo:'vivo / iQOO',Infinix:'Infinix',HUAWEI:'HUAWEI'};
+const params=new URLSearchParams(location.search);
+const val=v=>v===null||v===undefined||String(v).trim()===''?'غير متوفر':String(v);
+fetch('./phones.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
+ const all=data.phones||[];
+ const brand=params.get('brand')||'',model=params.get('model')||'',series=params.get('series')||'',year=params.get('year')||'';
+ const p=all.find(x=>x.brand===brand&&x.model===model&&(x.series||'')===series&&String(x.release_year||x.announcement_year||'')===year)||all.find(x=>x.brand===brand&&x.model===model&&(x.series||'')===series);
+ if(!p){$('content').innerHTML='<h1>لم نعثر على الهاتف</h1><p>ارجع إلى الكتالوج واختر الهاتف مرة أخرى.</p><a class="btn" href="catalog.html">العودة للكتالوج</a>';return}
+ document.title=(p.model||'تفاصيل الهاتف')+' | زكي فون';
+ const yearText=p.release_year||p.announcement_year;
+ const price=p.egypt_price_egp?Number(p.egypt_price_egp).toLocaleString('ar-EG')+' جنيه':'السعر المصري غير متوفر';
+ $('content').innerHTML=`<span class="brand"></span><h1 class="title"></h1><p class="sub"></p><div class="price"></div><div class="grid">
+ <div class="spec"><small>الشركة</small><b id="brandVal"></b></div>
+ <div class="spec"><small>سنة الإعلان</small><b id="yearVal"></b></div>
+ <div class="spec"><small>الشاشة</small><b id="displayVal"></b></div>
+ <div class="spec"><small>المعالج</small><b id="chipVal"></b></div>
+ <div class="spec"><small>الكاميرات</small><b id="cameraVal"></b></div>
+ <div class="spec"><small>البطارية</small><b id="batteryVal"></b></div>
+ <div class="spec"><small>خيارات الذاكرة والتخزين</small><b id="storageVal"></b></div>
+ <div class="spec"><small>حالة التحقق</small><b id="statusVal"></b></div>
+ </div><div class="note">ملاحظة: قاعدة البيانات مبدئية. أي مواصفة أو سعر غير متوفر سيظهر بوضوح على أنه غير متوفر، ولا يعني ذلك أن الهاتف لا يدعم هذه الميزة.</div>`;
+ $('content').querySelector('.brand').textContent=brandNames[p.brand]||val(p.brand);
+ $('content').querySelector('.title').textContent=val(p.model);
+ $('content').querySelector('.sub').textContent=[p.series,p.model!==p.series?p.brand:''].filter(Boolean).join(' • ');
+ $('content').querySelector('.price').textContent=price;
+ $('brandVal').textContent=val(brandNames[p.brand]||p.brand);
+ $('yearVal').textContent=val(yearText);
+ $('displayVal').textContent=val(p.display);
+ $('chipVal').textContent=val(p.chipset);
+ $('cameraVal').textContent=val(p.cameras);
+ $('batteryVal').textContent=val(p.battery);
+ $('storageVal').textContent=val(p.storage_options);
+ $('statusVal').textContent=(p.verification_status||'قيد التحقق');
+}).catch(()=>$('content').innerHTML='<h1>تعذر تحميل بيانات الهاتف</h1><p>تأكد من وجود ملف phones.json بجانب صفحة التفاصيل.</p><a class="btn" href="catalog.html">العودة للكتالوج</a>');
+</script></body></html>
