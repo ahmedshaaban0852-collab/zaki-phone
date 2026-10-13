@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="زكي فون - أخبار الهواتف الذكية ومراجعاتها ومقارنة المواصفات والأسعار.">
+<title>زكي فون | Zaki Phone</title>
+<style>
+:root{--bg:#080d18;--panel:#101827;--panel2:#131f32;--text:#f4f7fb;--muted:#a8b4c7;--blue:#3b82f6;--cyan:#22d3ee;--line:#26344a;--orange:#ff8657}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,#132342 0,transparent 34%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(8,13,24,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;white-space:nowrap}.logo-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#07101e;font-size:1.4rem;box-shadow:0 8px 24px #1d4ed855}.logo small{display:block;color:var(--muted);font-size:.68rem;direction:ltr;text-align:right;letter-spacing:.8px}
+nav{display:flex;align-items:center;gap:18px;color:#d8e1ef;font-size:.93rem}nav a:hover{color:var(--cyan)}.menu-btn{display:none;background:var(--panel);border:1px solid var(--line);color:white;border-radius:10px;padding:8px 12px}
+.header-actions{display:flex;gap:8px}.searchbox{display:flex;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 10px;min-width:205px}.searchbox input{width:100%;background:transparent;border:0;outline:0;color:white}.searchbox button{background:none;border:0;color:var(--cyan)}
+.hero{padding:48px 0 30px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:stretch}
+.hero-main{border:1px solid #29456a;background:linear-gradient(135deg,#122746,#101827 65%,#0d1727);border-radius:24px;padding:34px;position:relative;overflow:hidden}
+.hero-main:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:#2563eb22;left:-70px;top:-75px;filter:blur(4px)}
+.tag{display:inline-flex;align-items:center;gap:7px;color:#a5f3fc;background:#083344;border:1px solid #155e75;border-radius:999px;padding:5px 12px;font-size:.82rem}
+h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.25;margin:17px 0}.hero p{color:#c3d0e2;max-width:620px;margin:0 0 22px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:0;border-radius:12px;padding:11px 17px;font-weight:700}.btn-primary{background:linear-gradient(135deg,var(--blue),#2563eb);color:white;box-shadow:0 8px 22px #2563eb33}.btn-secondary{background:#16243a;color:#e6eefb;border:1px solid #30425e}
+.hero-side{display:grid;gap:14px}.side-card{border:1px solid var(--line);background:linear-gradient(135deg,var(--panel),#0e1726);border-radius:20px;padding:21px;display:flex;gap:14px;align-items:center}.side-icon{flex:0 0 54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#1d3558;font-size:1.55rem}.side-card h3{margin:0 0 4px;font-size:1rem}.side-card p{margin:0;color:var(--muted);font-size:.86rem}
+section{padding:25px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:17px}.section-head h2{margin:0;font-size:1.55rem}.section-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}.section-label{color:var(--cyan);font-size:.78rem;font-weight:bold}
+.brand-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.brand{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px 8px;text-align:center;transition:.2s;cursor:pointer}.brand:hover,.brand.active{transform:translateY(-3px);border-color:var(--blue);background:#14233a}.brand .brand-icon{width:48px;height:48px;border-radius:15px;margin:0 auto 9px;display:grid;place-items:center;background:#1c2e49;font-weight:900;font-size:1.1rem;color:#b9ddff}.brand span{display:block;font-weight:bold;font-size:.88rem}.brand small{color:var(--muted);font-size:.7rem;direction:ltr;display:block}
+.tools-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.tools-row select{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 12px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.phone-card{background:linear-gradient(180deg,#121d2d,#0e1624);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.phone-card:hover{transform:translateY(-3px);border-color:#365d93}.phone-art{height:150px;display:grid;place-items:center;background:radial-gradient(circle at center,#1e3a5f,#111c2d 70%);font-size:3.4rem}.phone-content{padding:17px}.phone-content h3{margin:0 0 6px}.phone-content p{color:var(--muted);font-size:.88rem;margin:0 0 12px}.specs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}.specs span{background:#1b2a40;border:1px solid #2b405d;border-radius:7px;padding:3px 7px;color:#d3e5ff;font-size:.75rem}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:900;color:#67e8f9}.tiny-btn{border:1px solid #355176;background:#17263c;color:#dbeafe;border-radius:9px;padding:7px 10px;font-size:.8rem}
+.compare{background:linear-gradient(120deg,#101e33,#0c1421);border:1px solid #29405f;border-radius:22px;padding:23px;display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}.field label{display:block;color:var(--muted);font-size:.85rem;margin-bottom:6px}.field select{width:100%;background:#0b1422;color:white;border:1px solid #334967;border-radius:10px;padding:11px}.compare-result{grid-column:1/-1;border-top:1px solid var(--line);padding-top:14px;color:#dbeafe;display:none}
+.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.article{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:19px}.article .article-icon{font-size:1.8rem;margin-bottom:8px}.article h3{font-size:1.03rem;margin:0 0 7px}.article p{color:var(--muted);font-size:.88rem;margin:0 0 12px}
+.cta{margin:30px 0;background:linear-gradient(110deg,#12365b,#10233b 60%,#0d192b);border:1px solid #2d527d;border-radius:22px;padding:25px;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta h2{margin:0 0 5px}.cta p{color:#bfcee2;margin:0}
+footer{border-top:1px solid var(--line);margin-top:25px;padding:27px 0 35px;color:var(--muted)}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap;font-size:.88rem}
+.empty{display:none;color:var(--muted);padding:25px;text-align:center;border:1px dashed var(--line);border-radius:14px}
+@media(max-width:850px){nav{display:none;position:absolute;top:70px;right:4%;left:4%;background:#0e1726;border:1px solid var(--line);border-radius:15px;padding:15px;flex-direction:column;align-items:stretch}nav.open{display:flex}.menu-btn{display:block}.header-actions{flex:1;justify-content:flex-end}.searchbox{min-width:0;width:min(230px,100%)}.hero-grid{grid-template-columns:1fr}.brand-grid{grid-template-columns:repeat(4,1fr)}.cards,.article-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.top{gap:8px}.logo{font-size:1rem}.logo-mark{width:37px;height:37px}.searchbox{width:42px;min-width:42px;padding:8px}.searchbox input{display:none}.hero{padding-top:25px}.hero-main{padding:23px}.brand-grid{grid-template-columns:repeat(3,1fr);gap:8px}.brand{padding:13px 5px}.cards,.article-grid{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.compare-result{grid-column:auto}.cta{align-items:flex-start;flex-direction:column}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#home" aria-label="زكي فون الرئيسية"><span class="logo-mark">Z</span><span>زكي فون<small>ZAKI PHONE</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <nav id="nav"><a href="#home">الرئيسية</a><a href="#brands">الشركات</a><a href="#phones">الهواتف</a><a href="#compare">مقارنة الهواتف</a><a href="#articles">المقالات</a></nav>
+    <div class="header-actions">
+      <label class="searchbox"><input id="searchInput" type="search" placeholder="ابحث عن هاتف..."><button id="searchBtn" aria-label="بحث">⌕</button></label>
+    </div>
+  </div>
+</header>
+<main id="home">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <span class="tag">✦ عالم الهواتف بين إيديك</span>
+        <h1>اختار موبايلك<br><span style="color:#67e8f9">بذكاء مع زكي فون</span></h1>
+        <p>مواصفات ومراجعات ومقارنات تساعدك تختار الهاتف المناسب لاحتياجاتك وميزانيتك. كل ما يهمك في عالم الموبايلات، في مكان واحد.</p>
+        <a class="btn btn-primary" href="#phones">استكشف الهواتف ←</a>
+        <a class="btn btn-secondary" href="#compare" style="margin-right:7px">قارن هاتفين</a>
+      </div>
+      <div class="hero-side">
+        <div class="side-card"><div class="side-icon">📱</div><div><h3>مواصفات واضحة</h3><p>الشاشة والمعالج والكاميرا والبطارية في لمحة.</p></div></div>
+        <div class="side-card"><div class="side-icon">⚖️</div><div><h3>مقارنة سهلة</h3><p>قارن بين الهواتف قبل ما تقرر تشتري.</p></div></div>
+        <div class="side-card"><div class="side-icon">🔎</div><div><h3>اختيار أذكى</h3><p>ابحث حسب الشركة أو اسم الهاتف.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="brands"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">الشركات</div><h2>تصفّح حسب الشركة</h2><p>اختار الشركة لعرض الهواتف التابعة لها.</p></div><button class="btn btn-secondary" id="allBrands">عرض الكل</button></div>
+    <div class="brand-grid" id="brandGrid">
+      <button class="brand" data-brand="Samsung"><div class="brand-icon">S</div><span>سامسونج</span><small>Samsung</small></button>
+      <button class="brand" data-brand="Xiaomi"><div class="brand-icon">Mi</div><span>شاومي</span><small>Xiaomi</small></button>
+      <button class="brand" data-brand="OPPO"><div class="brand-icon">O</div><span>أوبو</span><small>OPPO</small></button>
+      <button class="brand" data-brand="realme"><div class="brand-icon">R</div><span>ريلمي</span><small>realme</small></button>
+      <button class="brand" data-brand="vivo"><div class="brand-icon">v</div><span>فيفو</span><small>vivo</small></button>
+      <button class="brand" data-brand="Infinix"><div class="brand-icon">i</div><span>إنفينيكس</span><small>Infinix</small></button>
+      <button class="brand" data-brand="HUAWEI"><div class="brand-icon">H</div><span>هواوي</span><small>HUAWEI</small></button>
+    </div>
+  </div></section>
+
+  <section id="phones"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">دليل الهواتف</div><h2>هواتف تستحق تعرفها</h2><p>هذه بطاقات تجريبية لتجربة شكل الموقع؛ راجع الأسعار والمواصفات قبل النشر.</p></div></div>
+    <div class="tools-row"><select id="brandFilter" aria-label="فلترة حسب الشركة"><option value="">كل الشركات</option><option>Samsung</option><option>Xiaomi</option><option>OPPO</option><option>realme</option><option>vivo</option><option>Infinix</option><option>HUAWEI</option></select><select id="sortFilter" aria-label="ترتيب الهواتف"><option value="default">الترتيب الافتراضي</option><option value="name">الاسم أبجديًا</option></select></div>
+    <div class="cards" id="phoneCards">
+      <article class="phone-card" data-brand="Samsung" data-name="Galaxy A56"><div class="phone-art">📱</div><div class="phone-content"><h3>Samsung Galaxy A56</h3><p>هاتف من الفئة المتوسطة للاستخدام اليومي.</p><div class="specs"><span>شاشة AMOLED</span><span>5G</span><span>بطارية كبيرة</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="Samsung Galaxy A56">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="Xiaomi" data-name="Redmi Note 14"><div class="phone-art">📱</div><div class="phone-content"><h3>Xiaomi Redmi Note 14</h3><p>اختيار شائع لمن يبحث عن شاشة ومواصفات متوازنة.</p><div class="specs"><span>شاشة AMOLED</span><span>كاميرا عالية الدقة</span><span>شحن سريع</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="Xiaomi Redmi Note 14">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="OPPO" data-name="OPPO Reno"><div class="phone-art">📱</div><div class="phone-content"><h3>OPPO Reno</h3><p>تصميم أنيق وتجربة تصوير للاستخدام اليومي.</p><div class="specs"><span>تصميم نحيف</span><span>كاميرات متعددة</span><span>شحن سريع</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="OPPO Reno">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="realme" data-name="realme 12"><div class="phone-art">📱</div><div class="phone-content"><h3>realme 12</h3><p>هاتف للاستخدام اليومي مع خيارات أداء متعددة حسب النسخة.</p><div class="specs"><span>شاشة كبيرة</span><span>تصميم عصري</span><span>شحن سريع</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="realme 12">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="vivo" data-name="vivo V"><div class="phone-art">📱</div><div class="phone-content"><h3>vivo V Series</h3><p>سلسلة تركز على التصميم والكاميرا في عدة فئات.</p><div class="specs"><span>تصوير بورتريه</span><span>شاشة واضحة</span><span>تصميم خفيف</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="vivo V Series">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="Infinix" data-name="Infinix Note"><div class="phone-art">📱</div><div class="phone-content"><h3>Infinix Note Series</h3><p>خيارات اقتصادية ومتوسطة مع شاشات كبيرة.</p><div class="specs"><span>شاشة كبيرة</span><span>بطارية</span><span>قيمة مقابل السعر</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="Infinix Note Series">أضف للمقارنة +</button></div></div></article>
+      <article class="phone-card" data-brand="HUAWEI" data-name="HUAWEI nova"><div class="phone-art">📱</div><div class="phone-content"><h3>HUAWEI nova Series</h3><p>تصميم أنيق وكاميرات متعددة حسب الطراز.</p><div class="specs"><span>تصميم أنيق</span><span>تصوير</span><span>شاشة OLED حسب الطراز</span></div><div class="card-bottom"><span class="price">السعر يُحدّث لاحقًا</span><button class="tiny-btn compare-add" data-phone="HUAWEI nova Series">أضف للمقارنة +</button></div></div></article>
+    </div>
+    <div class="empty" id="emptyState">مفيش هواتف مطابقة للبحث ده. جرّب اسم تاني.</div>
+  </div></section>
+
+  <section id="compare"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">أداة تفاعلية</div><h2>قارن بين هاتفين</h2><p>اختار هاتفين من القائمة لعرض مقارنة أولية.</p></div></div>
+    <div class="compare">
+      <div class="field"><label for="phoneOne">الهاتف الأول</label><select id="phoneOne"><option>Samsung Galaxy A56</option><option>Xiaomi Redmi Note 14</option><option>OPPO Reno</option><option>realme 12</option><option>vivo V Series</option><option>Infinix Note Series</option><option>HUAWEI nova Series</option></select></div>
+      <div class="field"><label for="phoneTwo">الهاتف الثاني</label><select id="phoneTwo"><option>Xiaomi Redmi Note 14</option><option>Samsung Galaxy A56</option><option>OPPO Reno</option><option>realme 12</option><option>vivo V Series</option><option>Infinix Note Series</option><option>HUAWEI nova Series</option></select></div>
+      <button class="btn btn-primary" id="compareBtn">اعرض المقارنة</button>
+      <div class="compare-result" id="compareResult"></div>
+    </div>
+  </div></section>
+
+  <section id="articles"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">من المدونة</div><h2>مقالات ونصائح</h2><p>نماذج توضيحية للتصميم، استبدلها بمقالاتك الحقيقية قبل اعتمادها.</p></div></div>
+    <div class="article-grid">
+      <article class="article"><div class="article-icon">🧭</div><h3>إزاي تختار الموبايل المناسب لميزانيتك؟</h3><p>حدّد أولوياتك بين الأداء والشاشة والكاميرا والبطارية قبل الشراء.</p><a href="#phones" class="section-label">استكشف الهواتف ←</a></article>
+      <article class="article"><div class="article-icon">🔋</div><h3>نصائح للحفاظ على بطارية الهاتف</h3><p>عادات بسيطة تساعدك على متابعة استهلاك الطاقة والعناية بالبطارية.</p><a href="#phones" class="section-label">اعرف المزيد ←</a></article>
+      <article class="article"><div class="article-icon">⚖️</div><h3>إيه المهم في مقارنة موبايلين؟</h3><p>قارن بين احتياجاتك الفعلية، مش الأرقام وحدها.</p><a href="#compare" class="section-label">قارن الآن ←</a></article>
+    </div>
+  </div></section>
+  <div class="wrap"><div class="cta"><div><h2>زكي فون — اختيارات تقنية أذكى</h2><p>الموقع قيد التطوير. سيتم إضافة مراجعات وأسعار محدثة ومقالات فعلية لاحقًا.</p></div><a class="btn btn-primary" href="#home">العودة للأعلى ↑</a></div></div>
+</main>
+<footer><div class="wrap footer-row"><div class="logo"><span class="logo-mark">Z</span><span>زكي فون<small>ZAKI PHONE</small></span></div><div>© <span id="year"></span> زكي فون. جميع الحقوق محفوظة.</div><div class="footer-links"><a href="#brands">الشركات</a><a href="#phones">الهواتف</a><a href="#compare">المقارنة</a><a href="#articles">المقالات</a></div></div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const cards=[...document.querySelectorAll('.phone-card')], brandFilter=document.getElementById('brandFilter'), searchInput=document.getElementById('searchInput'), emptyState=document.getElementById('emptyState');
+let activeBrand='';
+function filterCards(){const brand=activeBrand||brandFilter.value;const q=searchInput.value.trim().toLowerCase();let visible=0;cards.forEach(c=>{const okBrand=!brand||c.dataset.brand===brand;const okSearch=!q||(c.dataset.name+' '+c.dataset.brand+' '+c.innerText).toLowerCase().includes(q);c.style.display=okBrand&&okSearch?'':'none';if(okBrand&&okSearch)visible++});emptyState.style.display=visible?'none':'block'}
+brandFilter.addEventListener('change',()=>{activeBrand='';document.querySelectorAll('.brand').forEach(b=>b.classList.remove('active'));filterCards()});
+searchInput.addEventListener('input',filterCards);document.getElementById('searchBtn').addEventListener('click',()=>{document.getElementById('phones').scrollIntoView({behavior:'smooth'});filterCards()});
+document.querySelectorAll('.brand').forEach(b=>b.addEventListener('click',()=>{activeBrand=b.dataset.brand;brandFilter.value='';document.querySelectorAll('.brand').forEach(x=>x.classList.toggle('active',x===b));document.getElementById('phones').scrollIntoView({behavior:'smooth'});filterCards()}));
+document.getElementById('allBrands').addEventListener('click',()=>{activeBrand='';brandFilter.value='';document.querySelectorAll('.brand').forEach(b=>b.classList.remove('active'));filterCards()});
+document.getElementById('sortFilter').addEventListener('change',e=>{if(e.target.value==='name'){const container=document.getElementById('phoneCards');[...cards].sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name)).forEach(c=>container.appendChild(c))}});
+document.querySelectorAll('.compare-add').forEach(btn=>btn.addEventListener('click',()=>{const sel=document.getElementById('phoneOne');const sel2=document.getElementById('phoneTwo');if(sel.value!==btn.dataset.phone)sel.value=btn.dataset.phone;else sel2.value=btn.dataset.phone;document.getElementById('compare').scrollIntoView({behavior:'smooth'})}));
+document.getElementById('compareBtn').addEventListener('click',()=>{const a=document.getElementById('phoneOne').value,b=document.getElementById('phoneTwo').value;const result=document.getElementById('compareResult');result.style.display='block';result.innerHTML=`<strong>${a}</strong> <span style="color:#67e8f9">مقابل</span> <strong>${b}</strong><br>تم تجهيز واجهة المقارنة. لإظهار نتائج دقيقة، سنضيف لاحقًا المواصفات والأسعار الموثقة لكل طراز.`});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body></html>
